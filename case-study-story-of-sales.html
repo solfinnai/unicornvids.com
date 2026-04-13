@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: The Story of Sales — How Salesforce Turned a Documentary Into $20M+ | UnicornVids</title>
+
+<!-- SEO -->
+<meta name="description" content="How Salesforce spent mid-six-figures on a 90-minute documentary that never said 'Salesforce' — and generated over $20 million in pipeline revenue. A UnicornVids case study on the power of brand storytelling.">
+<meta name="keywords" content="Salesforce case study, brand storytelling, documentary marketing, video ROI, content marketing, Story of Sales, video production case study">
+<link rel="canonical" href="https://unicornvids.com/case-study-story-of-sales">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://unicornvids.com/case-study-story-of-sales">
+<meta property="og:title" content="How a Documentary That Never Said 'Salesforce' Made Them $20M+">
+<meta property="og:description" content="The Story of Sales: How Salesforce turned brand storytelling into the highest-ROI marketing play in SaaS history.">
+<meta property="og:image" content="https://unicornvids.com/og-image.png">
+<meta property="og:site_name" content="UnicornVids">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How a Documentary That Never Said 'Salesforce' Made Them $20M+">
+<meta name="twitter:description" content="Mid-six-figure budget. $20M+ in attributed revenue. The blueprint for brand storytelling.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦄</text></svg>">
+
+<!-- Schema.org Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Salesforce Turned a Documentary Into $20M+ in Revenue",
+  "description": "Case study on The Story of Sales — a 90-minute documentary that never mentioned Salesforce by name and generated over $20 million in pipeline revenue.",
+  "author": { "@type": "Organization", "name": "UnicornVids" },
+  "publisher": { "@type": "Organization", "name": "UnicornVids" },
+  "datePublished": "2026-04-13",
+  "mainEntityOfPage": "https://unicornvids.com/case-study-story-of-sales"
+}
+</script>
+
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+
+:root {
+  --accent: #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-glow: rgba(124, 58, 237, 0.15);
+  --blue: #2563EB;
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #71717A;
+  --border-subtle: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.03);
+  --green: #22c55e;
+}
+
+.container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.overline { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-tertiary); }
+.overline-accent { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; background: linear-gradient(135deg, var(--accent), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ========== HEADER ========== */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 32px;
+  background: rgba(0,0,0,0.8); backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; text-decoration: none; color: #fff; }
+.logo span { background: linear-gradient(135deg, var(--accent), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.nav-cta {
+  background: var(--accent); color: #fff; font-size: 13px; font-weight: 600;
+  padding: 10px 20px; border: none; cursor: pointer; transition: all 0.2s; text-decoration: none;
+}
+.nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.unicorn-nav-btn { position: relative; overflow: visible !important; }
+.nav-unicorn-icon { font-size: 16px; margin-right: 2px; display: inline-block; transition: transform 0.4s; }
+.unicorn-nav-btn:hover .nav-unicorn-icon { transform: rotate(20deg) scale(1.3); }
+
+/* ========== HERO ========== */
+.case-hero {
+  padding: 160px 24px 100px; text-align: center; position: relative; overflow: hidden;
+}
+.case-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.case-hero-bg::before {
+  content: ''; position: absolute;
+  width: 900px; height: 900px;
+  top: 50%; left: 50%; transform: translate(-50%, -60%);
+  background: radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, rgba(37,99,235,0.05) 40%, transparent 70%);
+}
+.case-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.case-badge {
+  display: inline-block; padding: 6px 16px; margin-bottom: 24px;
+  background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+}
+.case-hero h1 {
+  font-size: clamp(36px, 5vw, 64px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 24px;
+}
+.case-hero h1 .highlight {
+  background: linear-gradient(135deg, var(--green), #16a34a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.case-hero .subtitle {
+  font-size: clamp(16px, 2vw, 20px); color: var(--text-secondary);
+  max-width: 620px; margin: 0 auto 40px; line-height: 1.6;
+}
+
+/* ========== STAT BAR ========== */
+.stat-bar {
+  padding: 48px 24px; background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);
+}
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.stat-item .stat-number {
+  font-size: clamp(32px, 4vw, 48px); font-weight: 900; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--accent), var(--blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1;
+}
+.stat-item .stat-label {
+  font-size: 13px; color: var(--text-tertiary); margin-top: 8px; line-height: 1.4;
+}
+
+/* ========== CONTENT SECTIONS ========== */
+.case-section { padding: 96px 24px; }
+.case-section.alt { background: var(--bg-secondary); }
+
+.section-label {
+  display: inline-block; padding: 4px 12px; margin-bottom: 20px;
+  background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.15);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.case-section h2 {
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px;
+}
+.case-section p {
+  font-size: 17px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;
+  max-width: 720px;
+}
+.case-section p:last-child { margin-bottom: 0; }
+h1, h2, h3 { overflow-wrap: break-word; }
+
+blockquote {
+  border-left: 3px solid var(--accent); padding: 20px 24px; margin: 32px 0;
+  background: rgba(124,58,237,0.04); font-style: italic;
+  font-size: 17px; line-height: 1.6; color: var(--text-secondary);
+}
+blockquote cite {
+  display: block; margin-top: 12px; font-style: normal;
+  font-size: 14px; font-weight: 600; color: var(--text-tertiary);
+}
+
+/* ========== BIG CALLOUT ========== */
+.big-callout {
+  padding: 80px 24px; text-align: center;
+  background: linear-gradient(180deg, rgba(124,58,237,0.04) 0%, var(--bg-primary) 100%);
+}
+.big-callout .big-number {
+  font-size: clamp(64px, 10vw, 120px); font-weight: 900; letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--green), #16a34a, var(--blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.big-callout .big-context {
+  font-size: clamp(18px, 2.5vw, 24px); color: var(--text-secondary);
+  margin-top: 12px; font-weight: 500;
+}
+.big-callout .big-sub {
+  font-size: 15px; color: var(--text-tertiary); margin-top: 8px;
+}
+
+/* ========== LESSONS GRID ========== */
+.lessons-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  margin-top: 40px;
+}
+.lesson-card {
+  padding: 32px; background: var(--glass);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.lesson-card:hover { border-color: rgba(124,58,237,0.2); transform: translateY(-4px); }
+.lesson-number {
+  font-size: 14px; font-weight: 800; color: var(--accent); margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.lesson-card h3 {
+  font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px;
+}
+.lesson-card p { font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 0; }
+
+/* ========== BRAND STORYTELLING SECTION ========== */
+.storytelling-section { padding: 96px 24px; }
+.storytelling-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+  margin-top: 40px;
+}
+.brand-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.brand-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; line-height: 1.5; color: var(--text-secondary);
+}
+.brand-list .brand-name { font-weight: 700; color: #fff; min-width: 100px; }
+.brand-list .check {
+  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; margin-top: 2px;
+  background: rgba(34,197,94,0.15); display: flex; align-items: center; justify-content: center;
+}
+.brand-list .check svg { width: 12px; height: 12px; }
+
+/* ========== CTA ========== */
+.case-cta {
+  padding: 96px 24px; text-align: center;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  position: relative;
+}
+.case-cta::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80%; max-width: 600px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.case-cta h2 {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px;
+}
+.case-cta p {
+  font-size: 17px; color: var(--text-secondary); max-width: 540px;
+  margin: 0 auto 32px; line-height: 1.6;
+}
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--blue));
+  color: #fff; font-size: 15px; font-weight: 600; padding: 16px 32px;
+  border: none; cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow); }
+.btn-secondary {
+  background: transparent; color: #fff; font-size: 15px; font-weight: 500;
+  padding: 16px 32px; border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 40px 24px; background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center; font-size: 13px; color: var(--text-tertiary);
+}
+.footer a { color: var(--text-tertiary); text-decoration: none; }
+.footer a:hover { color: #fff; }
+
+/* ========== ANIMATIONS ========== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .lessons-grid { grid-template-columns: 1fr; }
+  .storytelling-grid { grid-template-columns: 1fr; }
+  .case-hero { padding: 120px 20px 80px; }
+  .cta-buttons { flex-direction: column; align-items: center; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
+  blockquote { padding: 16px 18px; }
+  .big-callout .big-number { overflow-wrap: break-word; }
+}
+
+/* ========== UNICORN MODE ========== */
+body.unicorn-mode .case-badge {
+  background: rgba(255,0,255,0.15); border-color: rgba(255,0,255,0.3); color: #ff00ff;
+}
+body.unicorn-mode .section-label {
+  background: rgba(255,0,255,0.1); border-color: rgba(255,0,255,0.2); color: #ff00ff;
+}
+body.unicorn-mode .stat-item .stat-number,
+body.unicorn-mode .overline-accent {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 400% 100%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-text 1.5s linear infinite;
+}
+body.unicorn-mode .big-callout .big-number {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 400% 100%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-text 1.5s linear infinite;
+}
+body.unicorn-mode .lesson-card {
+  border-color: rgba(255,0,255,0.15);
+}
+body.unicorn-mode .lesson-card:hover {
+  border-color: rgba(0,255,255,0.3);
+  box-shadow: 0 0 30px rgba(255,0,255,0.1);
+}
+body.unicorn-mode .lesson-number { color: #ff00ff; }
+body.unicorn-mode blockquote { border-color: #ff00ff; background: rgba(255,0,255,0.04); }
+body.unicorn-mode .btn-primary {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 400% 100%; animation: rainbow-btn 2s linear infinite;
+}
+body.unicorn-mode .case-cta::before {
+  background: linear-gradient(90deg, transparent, #ff00ff, #00ffff, transparent);
+}
+body.unicorn-mode .unicorn-nav-btn {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #ff00ff) !important;
+  background-size: 300% 100% !important;
+  animation: rainbow-btn 2s linear infinite !important;
+}
+body.unicorn-mode .case-hero-bg::before {
+  background: conic-gradient(from 0deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  filter: blur(120px); opacity: 0.15;
+  animation: unicorn-spin 6s linear infinite;
+}
+body.unicorn-mode .footer {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff) 1;
+}
+
+@keyframes rainbow-text {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+@keyframes rainbow-btn {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+@keyframes unicorn-spin {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a href="/" class="logo">Unicorn<span>Vids</span></a>
+  <div class="header-right">
+    <a href="/#contact" class="nav-cta">Get a Quote</a>
+    <button class="nav-cta unicorn-nav-btn" onclick="toggleUnicornMode()" style="background:transparent;border:1px solid rgba(255,255,255,0.15);">
+      <span class="nav-unicorn-icon">&#129412;</span> Unicorn Mode
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="case-hero-bg"></div>
+  <div class="case-hero-content">
+    <div class="case-badge fade-up" id="heroBadge">Case Study</div>
+    <h1 class="fade-up stagger-1" id="heroTitle">A documentary that never said "Salesforce" made them <span class="highlight" id="heroHighlight">$20 million.</span></h1>
+    <p class="subtitle fade-up stagger-2" id="heroSubtitle">How one bold bet on brand storytelling generated 40x ROI — and why every brand from startups to the Fortune 500 is copying this playbook right now.</p>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<section class="stat-bar">
+  <div class="stat-grid">
+    <div class="stat-item fade-up">
+      <div class="stat-number" id="stat1Num">$20M+</div>
+      <div class="stat-label" id="stat1Label">Revenue attributed<br>to the film</div>
+    </div>
+    <div class="stat-item fade-up stagger-1">
+      <div class="stat-number" id="stat2Num">40x</div>
+      <div class="stat-label" id="stat2Label">Return on<br>investment</div>
+    </div>
+    <div class="stat-item fade-up stagger-2">
+      <div class="stat-number" id="stat3Num">90 min</div>
+      <div class="stat-label" id="stat3Label">Feature-length<br>documentary</div>
+    </div>
+    <div class="stat-item fade-up stagger-3">
+      <div class="stat-number" id="stat4Num">0</div>
+      <div class="stat-label" id="stat4Label">Times "Salesforce"<br>is mentioned in the film</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BOLD BET -->
+<section class="case-section" id="theBet">
+  <div class="container">
+    <div class="section-label fade-up" id="sec1Label">The Bold Bet</div>
+    <h2 class="fade-up stagger-1" id="sec1Title">They pitched a movie that would never mention the product. Salesforce said yes.</h2>
+    <p class="fade-up stagger-2" id="sec1P1">In 2013, our parent company RockBridge Productions had been making Salesforce product demos and customer success stories for years. Solid content, but standard playbook. Then came the pitch that changed everything: a 90-minute feature documentary about the history and art of selling — that would never once utter the word "Salesforce."</p>
+    <p class="fade-up stagger-3" id="sec1P2">The logic was counterintuitive but razor-sharp. One out of every nine people Salesforce engages with works in sales. Instead of pitching them software, what if you gave them something genuinely valuable — a film that honors their profession, teaches their craft, and restores the reputation of an entire industry?</p>
+    <blockquote class="fade-up stagger-4" id="sec1Quote">
+      "Our intent was really to take the time to educate people on what the sales profession is and what it takes to be a successful salesperson — hard work and genuine care about customers."
+      <cite>— Zaledonis, VP of Product Marketing, Salesforce</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- THE SCALE -->
+<section class="case-section alt">
+  <div class="container">
+    <div class="section-label fade-up" id="sec2Label">The Scale</div>
+    <h2 class="fade-up stagger-1" id="sec2Title">6 months. 12 locations. 35+ interviews. 60 hours of footage.</h2>
+    <p class="fade-up stagger-2" id="sec2P1">This wasn't a weekend shoot. The production spanned six months coast-to-coast across the United States, following a real sales professional through her career journey while weaving in thought leaders, historians, and the untold story of how selling shaped modern commerce.</p>
+    <p class="fade-up stagger-3" id="sec2P2">Over 15 full production crew days and 30+ half-crew days. 60 hours of raw footage, meticulously cut down to an 80-minute runtime. The red-carpet premiere happened in November at Dreamforce — the world's largest tech conference. The only footage not shot by our team were archival clips from the last century.</p>
+  </div>
+</section>
+
+<!-- BIG ROI CALLOUT -->
+<section class="big-callout">
+  <div class="fade-up">
+    <div class="big-number" id="bigNumber">$20M+</div>
+    <div class="big-context" id="bigContext">in revenue from a mid-six-figure budget</div>
+    <div class="big-sub" id="bigSub">Within 12 months. And it's still generating pipeline today.</div>
+  </div>
+</section>
+
+<!-- THE RESULT -->
+<section class="case-section">
+  <div class="container">
+    <div class="section-label fade-up" id="sec3Label">The Revenue Machine</div>
+    <h2 class="fade-up stagger-1" id="sec3Title">The film became a content factory that never stopped producing.</h2>
+    <p class="fade-up stagger-2" id="sec3P1">The documentary was just the beginning. Salesforce chopped it into blog posts, social clips, email sequences, and gated educational content. Each piece opened conversations with prospects about their professional lives and business challenges — conversations that led directly to pipeline and closed deals.</p>
+    <blockquote class="fade-up stagger-3" id="sec3Quote">
+      "We gated some of that additional content, so we were able to use these really inspirational and educational pieces to open even bigger conversations about their professional lives and the business challenges that they face every day. Gating the content generated a significant amount of leads, pipeline, and revenue."
+      <cite>— Zaledonis, VP of Product Marketing, Salesforce</cite>
+    </blockquote>
+    <p class="fade-up stagger-4" id="sec3P2">On a mid-six-figure production budget, Salesforce attributed over $20 million in sales directly to engagement with the film and its derivative content — within the first 12 months alone. The documentary is now used in universities as teaching material. It's still generating value years later. That's the staying power of a story well told.</p>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section class="case-section alt">
+  <div class="container">
+    <div class="section-label fade-up" id="sec4Label">Your Playbook</div>
+    <h2 class="fade-up stagger-1" id="sec4Title">How your brand can copy this.</h2>
+    <p class="fade-up stagger-2" id="sec4Intro">Salesforce proved the model. Here's how to apply it at any budget level.</p>
+    <div class="lessons-grid">
+      <div class="lesson-card fade-up stagger-1">
+        <div class="lesson-number" id="les1Num">01</div>
+        <h3 id="les1Title">Serve your audience, not your ego</h3>
+        <p id="les1Desc">The film worked because it gave genuine value to salespeople — not a 90-minute commercial. Create content your audience would seek out even if your logo wasn't on it. Great content promotes itself and people will seek out the source.</p>
+      </div>
+      <div class="lesson-card fade-up stagger-2">
+        <div class="lesson-number" id="les2Num">02</div>
+        <h3 id="les2Title">Target the overlooked audience</h3>
+        <p id="les2Desc">Salesforce realized 1 in 9 of their contacts were in sales — not their "main" buyer. By creating something specifically for that group, they opened a massive new pipeline. Look at who's adjacent to your ideal customer.</p>
+      </div>
+      <div class="lesson-card fade-up stagger-3">
+        <div class="lesson-number" id="les3Num">03</div>
+        <h3 id="les3Title">Build a content factory, not a one-shot</h3>
+        <p id="les3Desc">One documentary became hundreds of pieces — blog posts, gated assets, social clips, email sequences. Plan your long-form content as a system, not a single deliverable. The derivative content is where the leads live.</p>
+      </div>
+      <div class="lesson-card fade-up stagger-4">
+        <div class="lesson-number" id="les4Num">04</div>
+        <h3 id="les4Title">Be brave enough to not sell</h3>
+        <p id="les4Desc">The word "Salesforce" never appeared in the film. That was the point. When you create genuine value, you don't need a hard sell — the trust and authority you build does the selling for you. Any other company would have laughed this off. Salesforce took a calculated risk and it paid off massively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BIGGER PICTURE -->
+<section class="storytelling-section">
+  <div class="container">
+    <div class="section-label fade-up" id="sec5Label">The Bigger Picture</div>
+    <h2 class="fade-up stagger-1" id="sec5Title">Brand storytelling is now the highest-ROI play in marketing.</h2>
+    <p class="fade-up stagger-2" id="sec5P1">Salesforce wasn't the last. Since The Story of Sales, brand storytelling has exploded across every industry — SaaS, DTC, financial services, even B2B infrastructure. The companies winning attention (and revenue) are the ones telling stories, not running ads.</p>
+    <div class="storytelling-grid fade-up stagger-3">
+      <div>
+        <p id="sec5P2">The data is clear: branded documentary and storytelling content generates 3-5x longer engagement than traditional product marketing. It compounds over time (unlike paid ads that stop the moment you stop paying). And it builds the kind of trust that turns prospects into advocates.</p>
+        <p id="sec5P3" style="margin-top:16px;">Salesforce proved it with a movie. Patagonia does it with environmental films. HubSpot does it with educational series. Shopify does it with founder stories. Apple has been doing it since 1984. The pattern is undeniable: the brands investing in story are the ones dominating their categories.</p>
+      </div>
+      <ul class="brand-list">
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><span class="brand-name">Salesforce</span> — Documentary generated $20M+ in pipeline</div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><span class="brand-name">Patagonia</span> — Films drive activism + $1B+ brand value</div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><span class="brand-name">HubSpot</span> — Educational series fuels inbound flywheel</div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><span class="brand-name">Shopify</span> — Founder stories build merchant trust</div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><span class="brand-name">Apple</span> — Story-first marketing since 1984</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-cta">
+  <h2 class="fade-up" id="ctaTitle">Ready to tell your story?</h2>
+  <p class="fade-up stagger-1" id="ctaSub">We built the original. We can build yours. Video production starting at $2,500 — or let's talk about your own Story of Sales moment.</p>
+  <div class="cta-buttons fade-up stagger-2">
+    <a href="/#contact" class="btn-primary" id="ctaBtn1">Get Your Custom Quote</a>
+    <a href="https://cal.com/henry-finn" target="_blank" rel="noopener" class="btn-secondary">Book a Discovery Call</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 <a href="/">UnicornVids</a>. All rights reserved. &nbsp;|&nbsp; <a href="https://www.salesforce.com/story-of-sales/" target="_blank" rel="noopener">Watch The Story of Sales (free)</a></p>
+</footer>
+
+<script>
+// Scroll animations
+const fadeEls = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '-50px' });
+fadeEls.forEach(el => obs.observe(el));
+
+// ========== UNICORN MODE ==========
+let unicornActive = false;
+
+const unicornCopy = {
+  heroBadge:    { orig: null, uni: '🦄 Case Study (Now With Glitter)' },
+  heroTitle:    { orig: null, uni: 'Salesforce made a movie. Never mentioned themselves once. Made <span class="highlight" id="heroHighlight">$20 million.</span> Absolute legends.' },
+  heroSubtitle: { orig: null, uni: 'They basically said "what if we made a whole documentary and didn\'t even try to sell anything?" and it became the greatest marketing flex in SaaS history. 40x ROI. We\'re still not over it.' },
+  stat1Num:     { orig: null, uni: '$20M+' },
+  stat1Label:   { orig: null, uni: 'cold hard cash<br>from a movie' },
+  stat2Num:     { orig: null, uni: '40x' },
+  stat2Label:   { orig: null, uni: 'ROI that makes<br>CFOs weep' },
+  stat3Num:     { orig: null, uni: '90 min' },
+  stat3Label:   { orig: null, uni: 'of film without<br>saying "buy our CRM"' },
+  stat4Num:     { orig: null, uni: '0' },
+  stat4Label:   { orig: null, uni: 'product mentions<br>(yes, really, zero)' },
+  sec1Label:    { orig: null, uni: '🎲 The Unhinged Pitch' },
+  sec1Title:    { orig: null, uni: '"Hey Salesforce, what if we make a 90-minute movie and never mention you?" "...Go on."' },
+  sec1P1:       { orig: null, uni: 'Imagine walking into a room at one of the biggest tech companies on Earth and pitching: "We want to make a feature film about the history of selling. It won\'t mention your product. It won\'t mention your company. It\'ll cost mid-six figures. Trust us." That\'s exactly what happened. And someone at Salesforce said YES.' },
+  sec1P2:       { orig: null, uni: 'The big brain move: 1 in 9 people Salesforce talks to works in sales. Instead of hammering them with product demos, give them something they actually WANT — a love letter to their entire profession. Make them feel seen. Then watch what happens when grateful humans meet your sales team.' },
+  sec1Quote:    { orig: null, uni: '"Our intent was really to educate people on what sales is and what it takes to be successful — hard work and genuine care about customers." Translation: be so helpful that selling becomes unnecessary. <cite>— Zaledonis, VP of Product Marketing (Big Brain Energy)</cite>' },
+  sec2Label:    { orig: null, uni: '🎬 The Absolute Unit of a Production' },
+  sec2Title:    { orig: null, uni: '6 months. 12 cities. 35 interviews. 60 hours of footage. One really long edit.' },
+  sec2P1:       { orig: null, uni: 'This wasn\'t a TikTok that went viral by accident. This was a coast-to-coast, six-month cinematic OPERATION. They followed a real salesperson through her actual life, interviewed the biggest names in the game, and flew to 12 locations. Full crew. No shortcuts.' },
+  sec2P2:       { orig: null, uni: '15 days of full crew, 30+ days of half crew, and 60 hours of raw footage that had to be wrestled down to 80 minutes. The premiere? Red carpet at Dreamforce — the Super Bowl of tech conferences. The only footage they didn\'t shoot themselves was archival clips from literal last century. Respect.' },
+  bigNumber:    { orig: null, uni: '$20M+ 🤑' },
+  bigContext:   { orig: null, uni: 'from a movie that costs less than a Super Bowl ad spot' },
+  bigSub:       { orig: null, uni: 'Within 12 months. Still printing money. Universities teach it now. Absurd.' },
+  sec3Label:    { orig: null, uni: '💰 The Money Printer' },
+  sec3Title:    { orig: null, uni: 'They turned one movie into an infinite content machine that will not stop generating leads.' },
+  sec3P1:       { orig: null, uni: 'Here\'s where it gets stupid good. They didn\'t just release a documentary and hope for the best. They CHOPPED IT UP into blog posts, social clips, email sequences, and gated content. Every piece started a conversation. Every conversation moved a deal forward. The documentary wasn\'t the product — it was the factory.' },
+  sec3Quote:    { orig: null, uni: '"We gated some of that content, so we used these inspirational pieces to open bigger conversations about their professional lives and business challenges. Generated a significant amount of leads, pipeline, and revenue." <cite>— Zaledonis (casually describing a money printer)</cite>' },
+  sec3P2:       { orig: null, uni: 'Mid-six-figure budget. $20M+ in attributed revenue within 12 months. That\'s roughly a 40x return. To put that in perspective: most marketing teams celebrate a 5x return. Universities now use this film as teaching material. It\'s still generating leads TODAY, years later. That\'s not a campaign. That\'s a legacy.' },
+  sec4Label:    { orig: null, uni: '🗒️ The Cheat Code' },
+  sec4Title:    { orig: null, uni: 'How to steal this playbook (ethically).' },
+  sec4Intro:    { orig: null, uni: 'Salesforce did the hard part. Now you get to copy their homework. Here\'s the cheat sheet.' },
+  les1Num:      { orig: null, uni: '01 🎁' },
+  les1Title:    { orig: null, uni: 'Give, don\'t sell' },
+  les1Desc:     { orig: null, uni: 'Make something your audience would watch even if your logo wasn\'t on it. If you have to convince people your content is worth their time, you\'ve already lost. Salesforce made a movie for SALESPEOPLE, not for Salesforce. That\'s the whole trick.' },
+  les2Num:      { orig: null, uni: '02 🔍' },
+  les2Title:    { orig: null, uni: 'Find the audience nobody else sees' },
+  les2Desc:     { orig: null, uni: '1 in 9 of Salesforce\'s contacts were salespeople — not their "main" buyer persona. Everyone was ignoring them. Salesforce made an entire MOVIE for them. Look at who\'s sitting in your audience that nobody\'s talking to. That\'s your goldmine.' },
+  les3Num:      { orig: null, uni: '03 ♻️' },
+  les3Title:    { orig: null, uni: 'One shoot, infinite content' },
+  les3Desc:     { orig: null, uni: 'One documentary became hundreds of blog posts, social clips, gated PDFs, email nurtures, and probably a few LinkedIn carousels that went viral. Plan for the CHOP, not just the film. The derivative content is where all the leads live.' },
+  les4Num:      { orig: null, uni: '04 🦁' },
+  les4Title:    { orig: null, uni: 'Be brave enough to shut up about yourself' },
+  les4Desc:     { orig: null, uni: 'Zero product mentions. ZERO. Every marketing instinct screams "but mention the product!" Salesforce said no. And that\'s why it worked. When you build genuine trust, you don\'t need a hard sell. The audience comes to YOU. Any normal company would have chickened out. Don\'t be normal.' },
+  sec5Label:    { orig: null, uni: '🌍 Everyone\'s Copying This Now' },
+  sec5Title:    { orig: null, uni: 'Storytelling isn\'t a nice-to-have anymore. It\'s the whole game.' },
+  sec5P1:       { orig: null, uni: 'Since Salesforce proved the model, literally everyone has jumped on the storytelling train. SaaS companies, DTC brands, financial firms, even boring B2B infrastructure companies. The ones telling stories are eating the ones running ads. It\'s not even close anymore.' },
+  sec5P2:       { orig: null, uni: 'Story content gets 3-5x longer engagement than product marketing. It compounds over time (unlike ads that evaporate the second you stop paying). And it builds the kind of trust that turns cold prospects into ride-or-die brand advocates. The ROI is embarrassingly good.' },
+  sec5P3:       { orig: null, uni: 'Salesforce did it with a movie. Patagonia does it with environmental docs. HubSpot does it with educational series. Apple\'s been doing it since 1984. The pattern is so clear it hurts: invest in story = dominate your category. That\'s just math at this point.' },
+  ctaTitle:     { orig: null, uni: 'Want us to make YOUR brand unforgettable? 🦄' },
+  ctaSub:       { orig: null, uni: 'We literally built the original Story of Sales. We know this playbook inside and out. Let\'s create your version — your origin story, your customer love letter, your 40x ROI moment. Starting at $2,500.' },
+  ctaBtn1:      { orig: null, uni: '🦄 Yes, Make Me Legendary' },
+};
+
+function swapCopy(toUnicorn) {
+  for (const [id, data] of Object.entries(unicornCopy)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (data.orig === null) data.orig = el.innerHTML;
+    el.innerHTML = toUnicorn ? data.uni : data.orig;
+  }
+}
+
+function toggleUnicornMode() {
+  unicornActive = !unicornActive;
+  document.body.classList.toggle('unicorn-mode', unicornActive);
+  swapCopy(unicornActive);
+}
+</script>
+</body>
+</html>
