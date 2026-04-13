@@ -2,11 +2,6 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "cleanUrls": true,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node@3"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -16,8 +11,5 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/api/chat", "destination": "/api/chat.js" }
   ]
 }
