@@ -1049,6 +1049,88 @@ body.unicorn-mode .chat-fab {
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
 }
+
+/* ========== FEATURED CASE STUDY BANNER ========== */
+.case-study-banner {
+  padding: 80px 24px;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(34,197,94,0.03) 50%, var(--bg-primary) 100%);
+  position: relative; overflow: hidden;
+}
+.case-study-banner::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80%; max-width: 600px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34,197,94,0.4), transparent);
+}
+.case-study-banner::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 80%; max-width: 600px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.3), transparent);
+}
+.case-banner-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.case-banner-content .case-tag {
+  display: inline-block; padding: 4px 12px; margin-bottom: 16px;
+  background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #22c55e;
+}
+.case-banner-content h2 {
+  font-size: clamp(24px, 3vw, 36px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px;
+}
+.case-banner-content h2 .green { color: #22c55e; }
+.case-banner-content p {
+  font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;
+  max-width: 440px;
+}
+.case-banner-cta {
+  display: inline-block; padding: 14px 28px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff; font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: all 0.3s; letter-spacing: -0.01em;
+}
+.case-banner-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34,197,94,0.2); }
+.case-banner-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.case-stat {
+  padding: 24px; background: var(--glass); border: 1px solid var(--border-subtle);
+  transition: all 0.3s;
+}
+.case-stat:hover { border-color: rgba(34,197,94,0.2); }
+.case-stat .num {
+  font-size: 36px; font-weight: 900; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1.1; margin-bottom: 6px;
+}
+.case-stat .lbl { font-size: 13px; color: var(--text-tertiary); line-height: 1.3; }
+@media (max-width: 768px) {
+  .case-banner-inner { grid-template-columns: 1fr; gap: 32px; }
+  .case-banner-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* Unicorn mode for case study banner */
+body.unicorn-mode .case-study-banner::before {
+  background: linear-gradient(90deg, transparent, #ff00ff, #00ffff, transparent);
+}
+body.unicorn-mode .case-banner-content .case-tag {
+  background: rgba(255,0,255,0.1); border-color: rgba(255,0,255,0.3); color: #ff00ff;
+}
+body.unicorn-mode .case-stat .num {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 400% 100%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-text 1.5s linear infinite;
+}
+body.unicorn-mode .case-banner-cta {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 300% 100%; animation: rainbow-btn 2s linear infinite;
+}
+body.unicorn-mode .case-stat { border-color: rgba(255,0,255,0.15); }
+body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shadow: 0 0 20px rgba(255,0,255,0.1); }
 </style>
 </head>
 <body>
@@ -1159,6 +1241,36 @@ body.unicorn-mode .chat-fab {
       <p id="svc3Desc">Understand how AI transforms video production. Half-day workshops, full audits, and implementation roadmaps.</p>
       <div class="service-price" id="svc3Price">Starting at $2,500</div>
       <a href="#contact" class="service-link">Get started &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDY -->
+<section class="case-study-banner">
+  <div class="case-banner-inner">
+    <div class="case-banner-content">
+      <div class="case-tag fade-up" id="caseBannerTag">Featured Case Study</div>
+      <h2 class="fade-up stagger-1" id="caseBannerTitle">A film that never said "Salesforce" made them <span class="green">$20 million.</span></h2>
+      <p class="fade-up stagger-2" id="caseBannerDesc">We produced a 90-minute documentary for Salesforce that never mentioned the product once. It generated 40x ROI and became the blueprint for brand storytelling across the Fortune 500.</p>
+      <a href="/case-study-story-of-sales" class="case-banner-cta fade-up stagger-3" id="caseBannerCta">Read the Full Case Study &rarr;</a>
+    </div>
+    <div class="case-banner-stats fade-up stagger-2">
+      <div class="case-stat">
+        <div class="num" id="csNum1">$20M+</div>
+        <div class="lbl" id="csLbl1">Revenue attributed to the film</div>
+      </div>
+      <div class="case-stat">
+        <div class="num" id="csNum2">40x</div>
+        <div class="lbl" id="csLbl2">Return on investment</div>
+      </div>
+      <div class="case-stat">
+        <div class="num" id="csNum3">90 min</div>
+        <div class="lbl" id="csLbl3">Feature-length documentary</div>
+      </div>
+      <div class="case-stat">
+        <div class="num" id="csNum4">0</div>
+        <div class="lbl" id="csLbl4">Product mentions in the film</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1587,6 +1699,18 @@ const unicornCopy = {
   diff4Desc: { orig: null, uni: 'Need one video? Cute. Need a hundred? Now we\'re talking. Our network scales like a caffeinated hydra — cut one head off and three more creators appear. No overhead. No politics. Just content.' },
   testimonialQuote: { orig: null, uni: 'I told my board we hired a company called UnicornVids and they laughed. Then I showed them the results — 2.4M views in a week, 5-day turnaround — and suddenly nobody was laughing. They were writing a bigger check. The unicorn thing? Unironically iconic.' },
   testimonialCite: { orig: null, uni: '<strong>Sarah Chen</strong> · VP Marketing, Series C SaaS (Unicorn Convert)' },
+  caseBannerTag: { orig: null, uni: '🦄 The Legendary Case Study' },
+  caseBannerTitle: { orig: null, uni: 'Salesforce made a movie. Never mentioned themselves. Made <span class="green">$20 million.</span> Absolute mad lads.' },
+  caseBannerDesc: { orig: null, uni: 'We made a 90-minute film that never once said "Salesforce" and it generated 40x ROI. Universities teach it now. Other agencies are still writing blog posts about it. You\'re welcome.' },
+  caseBannerCta: { orig: null, uni: '🦄 Read How We Broke Marketing &rarr;' },
+  csNum1: { orig: null, uni: '$20M+ 🤑' },
+  csLbl1: { orig: null, uni: 'Cold hard cash from a movie' },
+  csNum2: { orig: null, uni: '40x' },
+  csLbl2: { orig: null, uni: 'ROI that makes CFOs cry' },
+  csNum3: { orig: null, uni: '90 min' },
+  csLbl3: { orig: null, uni: 'Without saying "buy our CRM"' },
+  csNum4: { orig: null, uni: '0' },
+  csLbl4: { orig: null, uni: 'Product mentions (zero, zilch, nada)' },
   ctaHeadline: { orig: null, uni: 'Stop scrolling. Start creating something stupidly good.' },
   ctaSub: { orig: null, uni: 'Tell us your wildest creative dream. We\'ll reply within 24 hours with a plan so good you\'ll forward it to your boss, your mom, and your group chat. Probably in that order.' },
 };
