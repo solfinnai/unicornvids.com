@@ -333,45 +333,6 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
 .client-logo:hover { color: rgba(255,255,255,0.5); }
 
 /* ========== SHOWREEL ========== */
-.showreel {
-  padding: 128px 24px; background: var(--bg-primary);
-  text-align: center;
-}
-.showreel .overline-accent { margin-bottom: 16px; display: inline-block; }
-.showreel h2 {
-  font-size: clamp(32px, 4vw, 52px); font-weight: 800;
-  letter-spacing: -0.03em; line-height: 1.1;
-  margin-bottom: 56px; max-width: 700px; margin-left: auto; margin-right: auto;
-}
-.video-container {
-  max-width: 1000px; margin: 0 auto;
-  aspect-ratio: 16/9; border-radius: 16px;
-  position: relative; overflow: hidden;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 0 80px var(--accent-glow), 0 20px 60px rgba(0,0,0,0.5);
-  cursor: pointer; transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-.video-container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 120px rgba(124,58,237,0.2), 0 24px 80px rgba(0,0,0,0.6);
-}
-.video-placeholder {
-  width: 100%; height: 100%; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 16px;
-  background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
-}
-.play-btn {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: rgba(255,255,255,0.1); backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s;
-}
-.play-btn:hover { background: rgba(255,255,255,0.15); transform: scale(1.1); }
-.play-btn svg { margin-left: 4px; }
-.video-caption { margin-top: 20px; font-size: 14px; color: var(--text-tertiary); }
-
 /* ========== SERVICES ========== */
 .services {
   padding: 128px 24px; background: var(--bg-light); color: #09090B;
@@ -733,17 +694,6 @@ body.unicorn-mode .service-icon {
 body.unicorn-mode .service-icon svg { stroke: #ff00ff; }
 body.unicorn-mode .service-price { color: #00ffff; }
 body.unicorn-mode .service-link { color: #ff00ff; }
-
-/* Video breathing hard */
-body.unicorn-mode .video-container {
-  box-shadow: 0 0 80px rgba(255,0,255,0.25), 0 0 160px rgba(0,255,255,0.15), 0 0 240px rgba(255,255,0,0.05);
-  border-color: rgba(255,0,255,0.4);
-  animation: breathe-unicorn 1.5s ease-in-out infinite;
-}
-@keyframes breathe-unicorn {
-  0%,100% { box-shadow: 0 0 80px rgba(255,0,255,0.25), 0 0 160px rgba(0,255,255,0.15); border-color: rgba(255,0,255,0.4); }
-  50% { box-shadow: 0 0 140px rgba(255,0,255,0.4), 0 0 280px rgba(0,255,255,0.25), 0 0 400px rgba(255,255,0,0.08); border-color: rgba(0,255,255,0.5); }
-}
 
 /* Portfolio cards glow cycling */
 body.unicorn-mode .portfolio-item {
@@ -1340,21 +1290,6 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   </div>
 </section>
 
-<!-- SHOWREEL -->
-<section class="showreel" id="showreel">
-  <span class="overline-accent fade-up" id="reelOverline">Our Work</span>
-  <h2 class="fade-up stagger-1" id="reelHeadline">See what happens when<br>creators meet studios.</h2>
-  <div class="video-container fade-up stagger-2">
-    <iframe
-      src="https://customer-70psjiempsj421uj.cloudflarestream.com/816a5c816d72dec5d1ef8ac69c3473da?autoplay=true&muted=true&loop=true&controls=true&poster=https%3A%2F%2Fcustomer-70psjiempsj421uj.cloudflarestream.com%2F816a5c816d72dec5d1ef8ac69c3473da%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D2s%26height%3D600"
-      style="border:none;width:100%;height:100%;position:absolute;top:0;left:0;"
-      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <p class="video-caption fade-up stagger-3" id="reelCaption">Selected work from campaigns for Salesforce, Kia, Samsung, and more.</p>
-</section>
-
 <!-- SERVICES -->
 <section class="services" id="services">
   <p class="overline fade-up" id="servicesOverline">What We Do</p>
@@ -1901,9 +1836,6 @@ const unicornCopy = {
   heroHeadline: { orig: null, uni: 'We bring the <span class="gradient-text">absolutely unhinged magic</span> to your brand.' },
   heroSub: { orig: null, uni: 'Fortune 500 quality. Unicorn speed. Fairy dust scale. We don\'t make videos — we birth cinematic miracles that make grown CMOs weep tears of glitter.' },
   logoBarOverline: { orig: null, uni: '🪩 These legends couldn\'t resist us' },
-  reelOverline: { orig: null, uni: '✨ Feast Your Eyes' },
-  reelHeadline: { orig: null, uni: 'Warning: this reel has been known<br>to cause spontaneous applause.' },
-  reelCaption: { orig: null, uni: 'Actual footage that made a Google exec do a standing ovation in a Zoom call. True story. Probably.' },
   servicesOverline: { orig: null, uni: '🍭 What Sorcery We Offer' },
   servicesHeadline: { orig: null, uni: 'Services so good<br>they should be illegal.' },
   svc1Title: { orig: null, uni: '🎬 Cinematic Sorcery' },
