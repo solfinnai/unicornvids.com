@@ -418,7 +418,7 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
   font-size: clamp(32px, 4vw, 52px); font-weight: 800;
   letter-spacing: -0.03em; line-height: 1.1; text-align: center; margin-bottom: 64px;
 }
-.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
 .portfolio-item {
   aspect-ratio: 16/10; border-radius: 8px; overflow: hidden;
   position: relative; cursor: pointer; background: var(--bg-tertiary);
@@ -441,7 +441,7 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
 .portfolio-overlay h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
 .portfolio-overlay span { font-size: 13px; color: var(--text-secondary); }
 
-.portfolio-item.featured { grid-column: span 2; aspect-ratio: 21/9; }
+.portfolio-item.featured { grid-column: span 3; aspect-ratio: 21/9; }
 
 .portfolio-play {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -452,6 +452,35 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
   opacity: 0; transition: all 0.4s; z-index: 2;
 }
 .portfolio-item:hover .portfolio-play { opacity: 1; }
+
+/* ========== VIDEO MODAL ========== */
+.video-modal-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.video-modal-overlay.active { opacity: 1; visibility: visible; }
+.video-modal {
+  position: relative; width: 90vw; max-width: 1100px;
+  aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+}
+.video-modal iframe { width: 100%; height: 100%; border: none; }
+.video-modal-close {
+  position: absolute; top: -48px; right: 0;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  color: #fff; width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 20px; transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+.video-modal-title {
+  position: absolute; bottom: -40px; left: 0;
+  font-size: 14px; color: var(--text-secondary); font-weight: 500;
+}
 
 /* ========== DIFFERENTIATORS ========== */
 .differentiators { padding: 128px 24px; background: var(--bg-primary); }
@@ -1014,8 +1043,10 @@ body.unicorn-mode .chat-fab {
   .hero-buttons { flex-direction: column; width: 100%; max-width: 320px; }
   .btn-primary, .btn-secondary { width: 100%; text-align: center; }
   .services-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 16px; }
   .portfolio-item.featured { grid-column: span 1; aspect-ratio: 16/10; }
+  .video-modal { width: 95vw; }
+  .video-modal-close { top: -44px; }
   .diff-grid { grid-template-columns: 1fr; }
   .cta-grid { grid-template-columns: 1fr; gap: 48px; }
   .form-grid { grid-template-columns: 1fr; }
@@ -1200,14 +1231,14 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   <span class="overline-accent fade-up" id="reelOverline">Our Work</span>
   <h2 class="fade-up stagger-1" id="reelHeadline">See what happens when<br>creators meet studios.</h2>
   <div class="video-container fade-up stagger-2">
-    <div class="video-placeholder">
-      <div class="play-btn">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <span style="color:var(--text-tertiary);font-size:14px;">Click to play showreel</span>
-    </div>
+    <iframe
+      src="https://customer-70psjiempsj421uj.cloudflarestream.com/816a5c816d72dec5d1ef8ac69c3473da?autoplay=true&muted=true&loop=true&controls=true&poster=https%3A%2F%2Fcustomer-70psjiempsj421uj.cloudflarestream.com%2F816a5c816d72dec5d1ef8ac69c3473da%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D2s%26height%3D600"
+      style="border:none;width:100%;height:100%;position:absolute;top:0;left:0;"
+      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+      allowfullscreen>
+    </iframe>
   </div>
-  <p class="video-caption fade-up stagger-3" id="reelCaption">Selected work from campaigns for Google, Nike, Spotify, and more.</p>
+  <p class="video-caption fade-up stagger-3" id="reelCaption">Selected work from campaigns for Salesforce, Kia, Samsung, and more.</p>
 </section>
 
 <!-- SERVICES -->
@@ -1280,65 +1311,135 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   <span class="overline-accent fade-up" id="workOverline">Selected Work</span>
   <h2 class="fade-up stagger-1" id="workHeadline">Projects that move the needle.</h2>
   <div class="portfolio-grid">
-    <div class="portfolio-item featured fade-up">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a2e,#0a1628);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:24px;font-weight:700;letter-spacing:-0.02em;color:rgba(255,255,255,0.15);">Featured Campaign — Nike</span>
-      </div>
-      <div class="portfolio-play">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <div class="portfolio-overlay">
-        <h4>Summer of Sport 2026</h4>
-        <span>Nike &middot; Brand Campaign</span>
-      </div>
-    </div>
-    <div class="portfolio-item fade-up stagger-1">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1e0a,#0a1628);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.12);">Spotify Wrapped</span>
-      </div>
-      <div class="portfolio-play">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <div class="portfolio-overlay">
-        <h4>Wrapped Campaign</h4>
-        <span>Spotify &middot; Social</span>
-      </div>
-    </div>
-    <div class="portfolio-item fade-up stagger-2">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a0a,#28180a);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.12);">Google AI</span>
-      </div>
-      <div class="portfolio-play">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <div class="portfolio-overlay">
-        <h4>AI Product Launch</h4>
-        <span>Google &middot; Product Film</span>
-      </div>
-    </div>
-    <a href="/case-study-story-of-sales" class="portfolio-item fade-up stagger-3" style="text-decoration:none;color:inherit;">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a1a,#0a1028);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-        <span style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.12);">Salesforce</span>
-        <span style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(124,58,237,0.5);">Read Case Study &rarr;</span>
-      </div>
+    <!-- FEATURED: Salesforce Case Study -->
+    <a href="/case-study-story-of-sales" class="portfolio-item featured fade-up" style="text-decoration:none;color:inherit;" data-video="72062f3d673b423443a2eb05840937df">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=8s&height=500" alt="Salesforce - The Story of Sales" loading="lazy">
       <div class="portfolio-play">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
       </div>
       <div class="portfolio-overlay">
         <h4>The Story of Sales — $20M+ Case Study</h4>
-        <span>Salesforce &middot; Feature Documentary</span>
+        <span>Salesforce &middot; Feature Documentary &middot; <em style="color:var(--accent);">Read Case Study &rarr;</em></span>
       </div>
     </a>
-    <div class="portfolio-item fade-up stagger-4">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0a1a,#1a0a28);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.12);">Creator Series</span>
-      </div>
+
+    <!-- Kia Sorento -->
+    <div class="portfolio-item fade-up stagger-1" onclick="openVideoModal('ab6fa64815a08007b599f51970a3200a','Kia Sorento — Launch Film')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/ab6fa64815a08007b599f51970a3200a/thumbnails/thumbnail.jpg?time=4s&height=400" alt="Kia Sorento" loading="lazy">
       <div class="portfolio-play">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
       </div>
       <div class="portfolio-overlay">
-        <h4>Creator Spotlight</h4>
-        <span>UnicornVids &middot; Original</span>
+        <h4>Kia Sorento</h4>
+        <span>Kia Motors &middot; Launch Film</span>
+      </div>
+    </div>
+
+    <!-- Three Hearts Video 1 -->
+    <div class="portfolio-item fade-up stagger-2" onclick="openVideoModal('188b7c9df491dc27b32f46e478d0cbb2','Three Hearts — Brand Film')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2/thumbnails/thumbnail.jpg?time=3s&height=400" alt="Three Hearts" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Three Hearts</h4>
+        <span>Three Hearts &middot; Brand Film</span>
+      </div>
+    </div>
+
+    <!-- Samsung GS8 -->
+    <div class="portfolio-item fade-up stagger-3" onclick="openVideoModal('527a22350b6c2c9d165ddbfd6a62820d','Samsung GS8 Smart Switch')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/527a22350b6c2c9d165ddbfd6a62820d/thumbnails/thumbnail.jpg?time=5s&height=400" alt="Samsung Galaxy S8" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Galaxy S8 Smart Switch</h4>
+        <span>Samsung &middot; Product Tutorial</span>
+      </div>
+    </div>
+
+    <!-- Natural Vitality -->
+    <div class="portfolio-item fade-up stagger-4" onclick="openVideoModal('07246aff847a96a470de40df9be2decd','Natural Vitality — Brand Spot')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/07246aff847a96a470de40df9be2decd/thumbnails/thumbnail.jpg?time=3s&height=400" alt="Natural Vitality" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Natural Vitality</h4>
+        <span>Natural Vitality &middot; Brand Spot</span>
+      </div>
+    </div>
+
+    <!-- Kia Optima -->
+    <div class="portfolio-item fade-up stagger-1" onclick="openVideoModal('3c7c27712edaeddc28fd4ba8b8a34a3d','Kia Optima — Commercial')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/3c7c27712edaeddc28fd4ba8b8a34a3d/thumbnails/thumbnail.jpg?time=4s&height=400" alt="Kia Optima" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Kia Optima</h4>
+        <span>Kia Motors &middot; Commercial</span>
+      </div>
+    </div>
+
+    <!-- Samsung Tab -->
+    <div class="portfolio-item fade-up stagger-2" onclick="openVideoModal('474c30900db59a337c9156f81e6392d3','Samsung Galaxy Tab')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/474c30900db59a337c9156f81e6392d3/thumbnails/thumbnail.jpg?time=5s&height=400" alt="Samsung Galaxy Tab" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Galaxy Tab</h4>
+        <span>Samsung &middot; Product Film</span>
+      </div>
+    </div>
+
+    <!-- Sam's Club Now -->
+    <div class="portfolio-item fade-up stagger-3" onclick="openVideoModal('aaf5df80a47924830deb192aa911371f','Sam\'s Club Now — Home Meals')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/aaf5df80a47924830deb192aa911371f/thumbnails/thumbnail.jpg?time=3s&height=400" alt="Sam's Club Now" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Home Meals</h4>
+        <span>Sam's Club &middot; Brand Campaign</span>
+      </div>
+    </div>
+
+    <!-- Omni Beverage -->
+    <div class="portfolio-item fade-up stagger-4" onclick="openVideoModal('4f9801ab7bfa16232018c26165f8a20b','Omni Beverage — Brand Film')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/4f9801ab7bfa16232018c26165f8a20b/thumbnails/thumbnail.jpg?time=5s&height=400" alt="Omni Beverage" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Omni Beverage</h4>
+        <span>Omni &middot; Brand Film</span>
+      </div>
+    </div>
+
+    <!-- Three Hearts Video 2 -->
+    <div class="portfolio-item fade-up stagger-1" onclick="openVideoModal('dfa4a6581c677a306be93f5504c283d8','Three Hearts — Extended Cut')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/dfa4a6581c677a306be93f5504c283d8/thumbnails/thumbnail.jpg?time=6s&height=400" alt="Three Hearts Extended" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Three Hearts — Extended</h4>
+        <span>Three Hearts &middot; Extended Cut</span>
+      </div>
+    </div>
+
+    <!-- Kia Teaser -->
+    <div class="portfolio-item fade-up stagger-2" onclick="openVideoModal('16125507aa4bbbc2eab5ffc6098dbb69','Kia — Teaser')">
+      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/16125507aa4bbbc2eab5ffc6098dbb69/thumbnails/thumbnail.jpg?time=2s&height=400" alt="Kia Teaser" loading="lazy">
+      <div class="portfolio-play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+      </div>
+      <div class="portfolio-overlay">
+        <h4>Kia Teaser</h4>
+        <span>Kia Motors &middot; Teaser</span>
       </div>
     </div>
   </div>
@@ -2348,6 +2449,38 @@ function getBotResponse(input) {
   ];
   return defaults[Math.floor(Math.random() * defaults.length)];
 }
+</script>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal-overlay" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="video-modal" onclick="event.stopPropagation()">
+    <div class="video-modal-close" onclick="closeVideoModal()">&times;</div>
+    <iframe id="videoModalIframe" src="" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+    <div class="video-modal-title" id="videoModalTitle"></div>
+  </div>
+</div>
+<script>
+const CF_STREAM = 'https://customer-70psjiempsj421uj.cloudflarestream.com';
+function openVideoModal(videoId, title) {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoModalIframe');
+  const titleEl = document.getElementById('videoModalTitle');
+  iframe.src = CF_STREAM + '/' + videoId + '?autoplay=true&controls=true';
+  titleEl.textContent = title || '';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeVideoModal(e) {
+  if (e && e.target !== document.getElementById('videoModal') && !e.target.classList.contains('video-modal-close')) return;
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoModalIframe');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(() => { iframe.src = ''; }, 300);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideoModal();
+});
 </script>
 </body>
 </html>
