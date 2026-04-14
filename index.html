@@ -1081,6 +1081,38 @@ body.unicorn-mode .chat-fab {
   transition: opacity 0.3s;
 }
 
+/* ========== CASE STUDIES SECTION ========== */
+.case-studies-section {
+  padding-top: 96px;
+  background: var(--bg-primary);
+}
+.case-studies-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+}
+.case-studies-header h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.case-studies-sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+body.unicorn-mode .case-studies-header h2 {
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff0, #00ff88, #ff00ff);
+  background-size: 400% 100%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: rainbow-text 1.5s linear infinite;
+}
+
 /* ========== FEATURED CASE STUDY BANNER ========== */
 .case-study-banner {
   padding: 80px 24px;
@@ -1255,6 +1287,7 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   <div class="logo">Unicorn<span>Vids</span></div>
   <nav class="nav-links" id="navLinks">
     <a href="#services" onclick="closeNav()">Services</a>
+    <a href="#case-studies" onclick="closeNav()">Case Studies</a>
     <a href="#work" onclick="closeNav()">Work</a>
     <a href="#about" onclick="closeNav()">About</a>
     <a href="#contact" onclick="closeNav()">Contact</a>
@@ -1357,8 +1390,16 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   </div>
 </section>
 
+<!-- CASE STUDIES SECTION -->
+<section class="case-studies-section" id="case-studies">
+  <div class="case-studies-header">
+    <span class="overline-accent fade-up" id="caseStudiesOverline">Proven Results</span>
+    <h2 class="fade-up stagger-1" id="caseStudiesHeadline">Case Studies</h2>
+    <p class="case-studies-sub fade-up stagger-2" id="caseStudiesSub">Real projects. Real numbers. See how we've driven millions in value for the world's biggest brands.</p>
+  </div>
+
 <!-- FEATURED CASE STUDY: THREE HEARTS -->
-<section class="three-hearts-banner">
+<div class="three-hearts-banner">
   <div class="th-banner-inner">
     <div class="th-banner-content">
       <div class="th-tag fade-up" id="thBannerTag">New Case Study</div>
@@ -1385,10 +1426,10 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FEATURED CASE STUDY: SALESFORCE -->
-<section class="case-study-banner">
+<div class="case-study-banner">
   <div class="case-banner-inner">
     <div class="case-banner-content">
       <div class="case-tag fade-up" id="caseBannerTag">Featured Case Study</div>
@@ -1415,6 +1456,7 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- PORTFOLIO -->
@@ -1422,18 +1464,6 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
   <span class="overline-accent fade-up" id="workOverline">Selected Work</span>
   <h2 class="fade-up stagger-1" id="workHeadline">Projects that move the needle.</h2>
   <div class="portfolio-grid">
-    <!-- FEATURED: Salesforce Case Study -->
-    <a href="/case-study-story-of-sales" class="portfolio-item featured fade-up" style="text-decoration:none;color:inherit;" data-video="72062f3d673b423443a2eb05840937df">
-      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=8s&height=500" alt="Salesforce - The Story of Sales" loading="lazy">
-      <div class="portfolio-play">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <div class="portfolio-overlay">
-        <h4>The Story of Sales — $20M+ Case Study</h4>
-        <span>Salesforce &middot; Feature Documentary &middot; <em style="color:var(--accent);">Read Case Study &rarr;</em></span>
-      </div>
-    </a>
-
     <!-- Kia Sorento -->
     <div class="portfolio-item fade-up stagger-1" onclick="openVideoModal('ab6fa64815a08007b599f51970a3200a','Kia Sorento — Launch Film')">
       <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/ab6fa64815a08007b599f51970a3200a/thumbnails/thumbnail.jpg?time=4s&height=400" alt="Kia Sorento" loading="lazy">
@@ -1446,20 +1476,8 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
       </div>
     </div>
 
-    <!-- Three Hearts Video 1 (Case Study) -->
-    <a href="/case-study-three-hearts" class="portfolio-item fade-up stagger-2" style="text-decoration:none;color:inherit;" data-video="188b7c9df491dc27b32f46e478d0cbb2">
-      <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2/thumbnails/thumbnail.jpg?time=3s&height=400" alt="Three Hearts Rum — Johnny Depp" loading="lazy">
-      <div class="portfolio-play">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
-      </div>
-      <div class="portfolio-overlay">
-        <h4>Three Hearts Rum — Guerrilla Launch</h4>
-        <span>Johnny Depp &middot; Brand Launch &middot; <em style="color:#D4A03C;">Read Case Study &rarr;</em></span>
-      </div>
-    </a>
-
     <!-- Samsung GS8 -->
-    <div class="portfolio-item fade-up stagger-3" onclick="openVideoModal('527a22350b6c2c9d165ddbfd6a62820d','Samsung GS8 Smart Switch')">
+    <div class="portfolio-item fade-up stagger-2" onclick="openVideoModal('527a22350b6c2c9d165ddbfd6a62820d','Samsung GS8 Smart Switch')">
       <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/527a22350b6c2c9d165ddbfd6a62820d/thumbnails/thumbnail.jpg?time=5s&height=400" alt="Samsung Galaxy S8" loading="lazy">
       <div class="portfolio-play">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
@@ -1471,7 +1489,7 @@ body.unicorn-mode .case-stat:hover { border-color: rgba(0,255,255,0.3); box-shad
     </div>
 
     <!-- Natural Vitality -->
-    <div class="portfolio-item fade-up stagger-4" onclick="openVideoModal('07246aff847a96a470de40df9be2decd','Natural Vitality — Brand Spot')">
+    <div class="portfolio-item fade-up stagger-3" onclick="openVideoModal('07246aff847a96a470de40df9be2decd','Natural Vitality — Brand Spot')">
       <img class="portfolio-thumb" src="https://customer-70psjiempsj421uj.cloudflarestream.com/07246aff847a96a470de40df9be2decd/thumbnails/thumbnail.jpg?time=3s&height=400" alt="Natural Vitality" loading="lazy">
       <div class="portfolio-play">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
@@ -1911,6 +1929,9 @@ const unicornCopy = {
   diff4Desc: { orig: null, uni: 'Need one video? Cute. Need a hundred? Now we\'re talking. Our network scales like a caffeinated hydra — cut one head off and three more creators appear. No overhead. No politics. Just content.' },
   testimonialQuote: { orig: null, uni: 'I told my board we hired a company called UnicornVids and they laughed. Then I showed them the results — 2.4M views in a week, 5-day turnaround — and suddenly nobody was laughing. They were writing a bigger check. The unicorn thing? Unironically iconic.' },
   testimonialCite: { orig: null, uni: '<strong>Sarah Chen</strong> · VP Marketing, Series C SaaS (Unicorn Convert)' },
+  caseStudiesOverline: { orig: null, uni: '🦄 Receipts' },
+  caseStudiesHeadline: { orig: null, uni: 'We Have Receipts' },
+  caseStudiesSub: { orig: null, uni: 'Not just vibes — actual results that made CFOs cry happy tears and CMOs get promoted.' },
   thBannerTag: { orig: null, uni: '🦄 The Rum Case Study' },
   thBannerTitle: { orig: null, uni: 'Johnny Depp\'s rum brand. <span class="gold">Under $10K.</span> Shot in someone\'s living room. Numbers rivaling DIOR. We can\'t even.' },
   thBannerDesc: { orig: null, uni: 'We launched Three Hearts Rum with guerrilla production that cost less than a used Honda Civic and pulled Instagram numbers comparable to a Dior campaign that probably cost more than a house. You\'re welcome.' },
@@ -2588,7 +2609,7 @@ function openVideoModal(videoId, title) {
   const modal = document.getElementById('videoModal');
   const iframe = document.getElementById('videoModalIframe');
   const titleEl = document.getElementById('videoModalTitle');
-  iframe.src = CF_STREAM + '/' + videoId + '?autoplay=true&controls=true';
+  iframe.src = CF_STREAM + '/' + videoId + '/iframe?autoplay=true&controls=true';
   titleEl.textContent = title || '';
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
