@@ -98,18 +98,39 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
 
 /* ========== HERO ========== */
 .case-hero {
-  padding: 160px 24px 100px; text-align: center; position: relative; overflow: hidden;
+  padding: 200px 24px 120px; text-align: center; position: relative; overflow: hidden;
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
 }
 .case-hero-bg {
   position: absolute; inset: 0; z-index: 0;
 }
 .case-hero-bg::before {
-  content: ''; position: absolute;
-  width: 900px; height: 900px;
-  top: 50%; left: 50%; transform: translate(-50%, -60%);
-  background: radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, rgba(37,99,235,0.05) 40%, transparent 70%);
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: rgba(0,0,0,0.6);
 }
-.case-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.case-hero-bg::after {
+  content: ''; position: absolute; inset: 0; z-index: 3;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
+}
+/* Background video */
+.hero-video {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; border: none;
+  pointer-events: none;
+}
+.hero-video iframe {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: 177.78vh; height: 56.25vw;
+  transform: translate(-50%, -50%);
+  border: none; pointer-events: none;
+}
+/* Mobile fallback image */
+.hero-poster {
+  display: none; position: absolute; inset: 0; z-index: 1;
+  background-size: cover; background-position: center;
+}
+.case-hero-content { position: relative; z-index: 5; max-width: 800px; margin: 0 auto; }
 .case-badge {
   display: inline-block; padding: 6px 16px; margin-bottom: 24px;
   background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2);
@@ -353,6 +374,60 @@ blockquote cite {
   .browser-mockup { margin: 32px auto 0; }
 }
 
+/* ========== BRAND CAROUSEL ========== */
+.brand-carousel-section {
+  padding: 64px 0 80px; overflow: hidden;
+  background: var(--bg-secondary);
+}
+.brand-carousel-section .carousel-intro {
+  text-align: center; padding: 0 24px; margin-bottom: 48px;
+}
+.brand-carousel-section .carousel-intro h3 {
+  font-size: clamp(20px, 2.5vw, 28px); font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.brand-carousel-section .carousel-intro p {
+  font-size: 15px; color: var(--text-tertiary); max-width: 540px; margin: 0 auto;
+}
+.carousel-track {
+  display: flex; gap: 20px;
+  animation: carousel-scroll 40s linear infinite;
+  width: max-content;
+}
+.carousel-track:hover { animation-play-state: paused; }
+.carousel-card {
+  flex-shrink: 0; width: 220px; position: relative;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden; background: #111;
+  transition: all 0.3s;
+}
+.carousel-card:hover { border-color: rgba(124,58,237,0.3); transform: translateY(-4px); }
+.carousel-card img {
+  width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block;
+  filter: brightness(0.9);
+  transition: filter 0.3s;
+}
+.carousel-card:hover img { filter: brightness(1); }
+.carousel-card .card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 48px 14px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+.carousel-card .card-brand {
+  font-size: 13px; font-weight: 700; color: #fff; display: block;
+}
+.carousel-card .card-type {
+  font-size: 11px; color: var(--text-tertiary); margin-top: 2px; display: block;
+}
+@keyframes carousel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .carousel-card { width: 170px; }
+  .carousel-track { gap: 14px; }
+}
+
 /* ========== CTA ========== */
 .case-cta {
   padding: 96px 24px; text-align: center;
@@ -411,7 +486,9 @@ blockquote cite {
   .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .lessons-grid { grid-template-columns: 1fr; }
   .storytelling-grid { grid-template-columns: 1fr; }
-  .case-hero { padding: 120px 20px 80px; }
+  .case-hero { padding: 140px 20px 80px; min-height: 70vh; }
+  .hero-video { display: none; }
+  .hero-poster { display: block; }
   .cta-buttons { flex-direction: column; align-items: center; gap: 12px; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
   blockquote { padding: 16px 18px; }
@@ -498,7 +575,13 @@ body.unicorn-mode .footer {
 
 <!-- HERO -->
 <section class="case-hero">
-  <div class="case-hero-bg"></div>
+  <div class="case-hero-bg">
+    <div class="hero-video">
+      <iframe src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df?autoplay=true&muted=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-70psjiempsj421uj.cloudflarestream.com%2F72062f3d673b423443a2eb05840937df%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D8s%26height%3D800"
+        allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+    <div class="hero-poster" style="background-image:url('https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=8s&height=800')"></div>
+  </div>
   <div class="case-hero-content">
     <div class="case-badge fade-up" id="heroBadge">Case Study</div>
     <h1 class="fade-up stagger-1" id="heroTitle">A documentary that never said "Salesforce" made them <span class="highlight" id="heroHighlight">$20 million.</span></h1>
@@ -609,9 +692,9 @@ body.unicorn-mode .footer {
 <!-- THE BIGGER PICTURE -->
 <section class="storytelling-section">
   <div class="container">
-    <div class="section-label fade-up" id="sec5Label">The Bigger Picture</div>
-    <h2 class="fade-up stagger-1" id="sec5Title">Brand storytelling is now the highest-ROI play in marketing.</h2>
-    <p class="fade-up stagger-2" id="sec5P1">Salesforce wasn't the last. Since The Story of Sales, brand storytelling has exploded across every industry — SaaS, DTC, financial services, even B2B infrastructure. The companies winning attention (and revenue) are the ones telling stories, not running ads.</p>
+    <div class="section-label fade-up" id="sec5Label">Ahead of the Curve</div>
+    <h2 class="fade-up stagger-1" id="sec5Title">Now every brand wants to tell stories. We were doing it before it was a strategy.</h2>
+    <p class="fade-up stagger-2" id="sec5P1">We produced The Story of Sales in 2013 — years before "brand storytelling" became a marketing buzzword. Since then, every major company has copied the playbook we helped pioneer. SaaS, DTC, financial services, even B2B infrastructure. The companies winning attention (and revenue) are the ones telling stories, not running ads. We just got there first.</p>
     <div class="storytelling-grid fade-up stagger-3">
       <div>
         <p id="sec5P2">The data is clear: branded documentary and storytelling content generates 3-5x longer engagement than traditional product marketing. It compounds over time (unlike paid ads that stop the moment you stop paying). And it builds the kind of trust that turns prospects into advocates.</p>
@@ -639,6 +722,104 @@ body.unicorn-mode .footer {
           <div><span class="brand-name">Apple</span> — Story-first marketing since 1984</div>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STORYTELLING CAROUSEL -->
+<section class="brand-carousel-section">
+  <div class="carousel-intro fade-up">
+    <h3>Every brand is doing this now. Scroll the proof.</h3>
+    <p>From Fortune 500s to startups — brand storytelling went from bold experiment to industry standard. We were there first.</p>
+  </div>
+  <div class="carousel-track">
+    <!-- Set 1 -->
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=12s&height=600" alt="Salesforce — The Story of Sales" loading="lazy">
+      <div class="card-label"><span class="card-brand">Salesforce</span><span class="card-type">Documentary &middot; $20M+ ROI</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2/thumbnails/thumbnail.jpg?time=3s&height=600" alt="Three Hearts Rum — Brand Launch" loading="lazy">
+      <div class="card-label"><span class="card-brand">Three Hearts Rum</span><span class="card-type">Brand Launch &middot; Johnny Depp</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Patagonia</span><span class="card-type">Environmental Films</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/ab6fa64815a08007b599f51970a3200a/thumbnails/thumbnail.jpg?time=4s&height=600" alt="Kia — Brand Film" loading="lazy">
+      <div class="card-label"><span class="card-brand">Kia</span><span class="card-type">Launch Film &middot; Sorento</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#ff6b35,#f7931e,#ffc107);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">HubSpot</span><span class="card-type">Educational Series</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/527a22350b6c2c9d165ddbfd6a62820d/thumbnails/thumbnail.jpg?time=5s&height=600" alt="Samsung — Brand Story" loading="lazy">
+      <div class="card-label"><span class="card-brand">Samsung</span><span class="card-type">Product Story &middot; Galaxy S8</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#96bf48,#5c8a1a,#3d5e0f);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Shopify</span><span class="card-type">Founder Stories</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/dfa4a6581c677a306be93f5504c283d8/thumbnails/thumbnail.jpg?time=6s&height=600" alt="Three Hearts — Extended" loading="lazy">
+      <div class="card-label"><span class="card-brand">Three Hearts Rum</span><span class="card-type">Extended Cut</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#1d1d1f,#333,#1d1d1f);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Apple</span><span class="card-type">Story-First Since 1984</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/07246aff847a96a470de40df9be2decd/thumbnails/thumbnail.jpg?time=3s&height=600" alt="Natural Vitality — Brand Spot" loading="lazy">
+      <div class="card-label"><span class="card-brand">Natural Vitality</span><span class="card-type">Brand Spot</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/4f9801ab7bfa16232018c26165f8a20b/thumbnails/thumbnail.jpg?time=5s&height=600" alt="Omni Beverage — Brand Film" loading="lazy">
+      <div class="card-label"><span class="card-brand">Omni Beverage</span><span class="card-type">Brand Film</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#e8352e,#c21807,#8b0000);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Netflix</span><span class="card-type">Brand Documentary</span></div>
+    </div>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=12s&height=600" alt="Salesforce — The Story of Sales" loading="lazy">
+      <div class="card-label"><span class="card-brand">Salesforce</span><span class="card-type">Documentary &middot; $20M+ ROI</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2/thumbnails/thumbnail.jpg?time=3s&height=600" alt="Three Hearts Rum — Brand Launch" loading="lazy">
+      <div class="card-label"><span class="card-brand">Three Hearts Rum</span><span class="card-type">Brand Launch &middot; Johnny Depp</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Patagonia</span><span class="card-type">Environmental Films</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/ab6fa64815a08007b599f51970a3200a/thumbnails/thumbnail.jpg?time=4s&height=600" alt="Kia — Brand Film" loading="lazy">
+      <div class="card-label"><span class="card-brand">Kia</span><span class="card-type">Launch Film &middot; Sorento</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#ff6b35,#f7931e,#ffc107);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">HubSpot</span><span class="card-type">Educational Series</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/527a22350b6c2c9d165ddbfd6a62820d/thumbnails/thumbnail.jpg?time=5s&height=600" alt="Samsung — Brand Story" loading="lazy">
+      <div class="card-label"><span class="card-brand">Samsung</span><span class="card-type">Product Story &middot; Galaxy S8</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#96bf48,#5c8a1a,#3d5e0f);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Shopify</span><span class="card-type">Founder Stories</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/dfa4a6581c677a306be93f5504c283d8/thumbnails/thumbnail.jpg?time=6s&height=600" alt="Three Hearts — Extended" loading="lazy">
+      <div class="card-label"><span class="card-brand">Three Hearts Rum</span><span class="card-type">Extended Cut</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#1d1d1f,#333,#1d1d1f);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Apple</span><span class="card-type">Story-First Since 1984</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/07246aff847a96a470de40df9be2decd/thumbnails/thumbnail.jpg?time=3s&height=600" alt="Natural Vitality — Brand Spot" loading="lazy">
+      <div class="card-label"><span class="card-brand">Natural Vitality</span><span class="card-type">Brand Spot</span></div>
+    </div>
+    <div class="carousel-card">
+      <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/4f9801ab7bfa16232018c26165f8a20b/thumbnails/thumbnail.jpg?time=5s&height=600" alt="Omni Beverage — Brand Film" loading="lazy">
+      <div class="card-label"><span class="card-brand">Omni Beverage</span><span class="card-type">Brand Film</span></div>
+    </div>
+    <div class="carousel-card" style="background:linear-gradient(160deg,#e8352e,#c21807,#8b0000);aspect-ratio:9/16;display:flex;align-items:flex-end;">
+      <div class="card-label" style="position:relative;padding:14px;"><span class="card-brand">Netflix</span><span class="card-type">Brand Documentary</span></div>
     </div>
   </div>
 </section>
@@ -817,8 +998,8 @@ const unicornCopy = {
   les4Num:      { orig: null, uni: '04 🦁' },
   les4Title:    { orig: null, uni: 'Be brave enough to shut up about yourself' },
   les4Desc:     { orig: null, uni: 'Zero product mentions. ZERO. Every marketing instinct screams "but mention the product!" Salesforce said no. And that\'s why it worked. When you build genuine trust, you don\'t need a hard sell. The audience comes to YOU. Any normal company would have chickened out. Don\'t be normal.' },
-  sec5Label:    { orig: null, uni: '🌍 Everyone\'s Copying This Now' },
-  sec5Title:    { orig: null, uni: 'Storytelling isn\'t a nice-to-have anymore. It\'s the whole game.' },
+  sec5Label:    { orig: null, uni: '🌍 We Started This Whole Thing' },
+  sec5Title:    { orig: null, uni: 'Everyone\'s doing brand storytelling now. We were doing it when they were still making banner ads. You\'re welcome.' },
   sec5P1:       { orig: null, uni: 'Since Salesforce proved the model, literally everyone has jumped on the storytelling train. SaaS companies, DTC brands, financial firms, even boring B2B infrastructure companies. The ones telling stories are eating the ones running ads. It\'s not even close anymore.' },
   sec5P2:       { orig: null, uni: 'Story content gets 3-5x longer engagement than product marketing. It compounds over time (unlike ads that evaporate the second you stop paying). And it builds the kind of trust that turns cold prospects into ride-or-die brand advocates. The ROI is embarrassingly good.' },
   sec5P3:       { orig: null, uni: 'Salesforce did it with a movie. Patagonia does it with environmental docs. HubSpot does it with educational series. Apple\'s been doing it since 1984. The pattern is so clear it hurts: invest in story = dominate your category. That\'s just math at this point.' },

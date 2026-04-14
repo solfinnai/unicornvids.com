@@ -98,18 +98,39 @@ body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #
 
 /* ========== HERO ========== */
 .case-hero {
-  padding: 160px 24px 100px; text-align: center; position: relative; overflow: hidden;
+  padding: 200px 24px 120px; text-align: center; position: relative; overflow: hidden;
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
 }
 .case-hero-bg {
   position: absolute; inset: 0; z-index: 0;
 }
 .case-hero-bg::before {
-  content: ''; position: absolute;
-  width: 900px; height: 900px;
-  top: 50%; left: 50%; transform: translate(-50%, -60%);
-  background: radial-gradient(ellipse, rgba(212,160,60,0.12) 0%, rgba(184,134,11,0.05) 40%, transparent 70%);
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: rgba(0,0,0,0.55);
 }
-.case-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.case-hero-bg::after {
+  content: ''; position: absolute; inset: 0; z-index: 3;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
+}
+/* Background video */
+.hero-video {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; border: none;
+  pointer-events: none;
+}
+.hero-video iframe {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: 177.78vh; height: 56.25vw;
+  transform: translate(-50%, -50%);
+  border: none; pointer-events: none;
+}
+/* Mobile fallback image */
+.hero-poster {
+  display: none; position: absolute; inset: 0; z-index: 1;
+  background-size: cover; background-position: center;
+}
+.case-hero-content { position: relative; z-index: 5; max-width: 800px; margin: 0 auto; }
 .case-badge {
   display: inline-block; padding: 6px 16px; margin-bottom: 24px;
   background: rgba(212,160,60,0.1); border: 1px solid rgba(212,160,60,0.25);
@@ -330,7 +351,9 @@ blockquote cite {
   .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .lessons-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-  .case-hero { padding: 120px 20px 80px; }
+  .case-hero { padding: 140px 20px 80px; min-height: 70vh; }
+  .hero-video { display: none; }
+  .hero-poster { display: block; }
   .cta-buttons { flex-direction: column; align-items: center; gap: 12px; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
   .comparison-table th, .comparison-table td { padding: 12px 14px; font-size: 14px; }
@@ -395,7 +418,13 @@ body.unicorn-mode .footer {
 
 <!-- HERO -->
 <section class="case-hero">
-  <div class="case-hero-bg"></div>
+  <div class="case-hero-bg">
+    <div class="hero-video">
+      <iframe src="https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2?autoplay=true&muted=true&loop=true&controls=false&poster=https%3A%2F%2Fcustomer-70psjiempsj421uj.cloudflarestream.com%2F188b7c9df491dc27b32f46e478d0cbb2%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D3s%26height%3D800"
+        allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+    <div class="hero-poster" style="background-image:url('https://customer-70psjiempsj421uj.cloudflarestream.com/188b7c9df491dc27b32f46e478d0cbb2/thumbnails/thumbnail.jpg?time=3s&height=800')"></div>
+  </div>
   <div class="case-hero-content">
     <div class="case-badge fade-up">Case Study</div>
     <h1 class="fade-up stagger-1">Dior-level results. <span class="highlight">Under $10K.</span> Shot in a living room.</h1>
