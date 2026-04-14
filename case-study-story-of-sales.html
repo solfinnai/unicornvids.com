@@ -236,6 +236,123 @@ blockquote cite {
 }
 .brand-list .check svg { width: 12px; height: 12px; }
 
+/* ========== STILL LIVE SECTION ========== */
+.still-live-section { padding: 96px 24px; }
+.still-live-section h2 {
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 24px;
+}
+.still-live-section p {
+  font-size: 17px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;
+  max-width: 720px;
+}
+
+/* Browser mockup */
+.browser-mockup {
+  max-width: 860px; margin: 48px auto 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #111; overflow: hidden;
+  transition: all 0.4s;
+}
+.browser-mockup:hover { border-color: rgba(34,197,94,0.3); box-shadow: 0 16px 64px rgba(34,197,94,0.08); }
+.browser-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px; background: #1a1a1a;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.browser-dots { display: flex; gap: 6px; }
+.browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.browser-dots span:nth-child(1) { background: #ff5f57; }
+.browser-dots span:nth-child(2) { background: #febc2e; }
+.browser-dots span:nth-child(3) { background: #28c840; }
+.browser-url {
+  flex: 1; margin-left: 8px; padding: 6px 12px;
+  background: rgba(255,255,255,0.06); border-radius: 4px;
+  font-size: 12px; color: var(--text-tertiary); font-family: monospace;
+}
+.browser-body {
+  position: relative; display: block;
+  background: #2a2a2a; min-height: 300px;
+  text-decoration: none; color: inherit;
+}
+.browser-body img {
+  width: 100%; display: block; opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.browser-mockup:hover .browser-body img { opacity: 1; }
+.browser-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.5);
+  opacity: 0; transition: opacity 0.3s;
+}
+.browser-mockup:hover .browser-overlay { opacity: 1; }
+.browser-overlay .live-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; margin-bottom: 16px;
+  background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
+  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: #22c55e;
+}
+.browser-overlay .live-badge::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e; animation: pulse-live 2s ease-in-out infinite;
+}
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+}
+.browser-overlay .visit-text {
+  font-size: 18px; font-weight: 700; color: #fff;
+}
+
+/* Page breakdown grid */
+.page-breakdown {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 48px; max-width: 860px;
+}
+.breakdown-card {
+  padding: 24px; background: var(--glass);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s;
+}
+.breakdown-card:hover { border-color: rgba(34,197,94,0.2); transform: translateY(-2px); }
+.breakdown-card .bd-icon {
+  font-size: 24px; margin-bottom: 12px;
+}
+.breakdown-card h4 {
+  font-size: 15px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.breakdown-card p {
+  font-size: 13px; color: var(--text-tertiary); line-height: 1.5; margin-bottom: 0;
+  max-width: none;
+}
+
+/* Timeline */
+.value-timeline {
+  margin-top: 48px; max-width: 720px;
+}
+.timeline-item {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 20px 0; border-bottom: 1px solid var(--border-subtle);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-year {
+  font-size: 14px; font-weight: 800; color: var(--green);
+  min-width: 60px; padding-top: 2px;
+}
+.timeline-content h4 {
+  font-size: 16px; font-weight: 700; margin-bottom: 4px;
+}
+.timeline-content p {
+  font-size: 14px; color: var(--text-tertiary); margin-bottom: 0;
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  .page-breakdown { grid-template-columns: 1fr; }
+  .browser-mockup { margin: 32px auto 0; }
+}
+
 /* ========== CTA ========== */
 .case-cta {
   padding: 96px 24px; text-align: center;
@@ -385,7 +502,7 @@ body.unicorn-mode .footer {
   <div class="case-hero-content">
     <div class="case-badge fade-up" id="heroBadge">Case Study</div>
     <h1 class="fade-up stagger-1" id="heroTitle">A documentary that never said "Salesforce" made them <span class="highlight" id="heroHighlight">$20 million.</span></h1>
-    <p class="subtitle fade-up stagger-2" id="heroSubtitle">How one bold bet on brand storytelling generated 40x ROI — and why every brand from startups to the Fortune 500 is copying this playbook right now.</p>
+    <p class="subtitle fade-up stagger-2" id="heroSubtitle">10x ROI in year one. Still generating revenue 13 years later. The page is still live on Salesforce.com right now. This is the power of brand storytelling.</p>
   </div>
 </section>
 
@@ -397,12 +514,12 @@ body.unicorn-mode .footer {
       <div class="stat-label" id="stat1Label">Revenue attributed<br>to the film</div>
     </div>
     <div class="stat-item fade-up stagger-1">
-      <div class="stat-number" id="stat2Num">40x</div>
-      <div class="stat-label" id="stat2Label">Return on<br>investment</div>
+      <div class="stat-number" id="stat2Num">10x</div>
+      <div class="stat-label" id="stat2Label">ROI in<br>year one</div>
     </div>
     <div class="stat-item fade-up stagger-2">
-      <div class="stat-number" id="stat3Num">90 min</div>
-      <div class="stat-label" id="stat3Label">Feature-length<br>documentary</div>
+      <div class="stat-number" id="stat3Num">13 yrs</div>
+      <div class="stat-label" id="stat3Label">Still generating<br>value today</div>
     </div>
     <div class="stat-item fade-up stagger-3">
       <div class="stat-number" id="stat4Num">0</div>
@@ -438,9 +555,9 @@ body.unicorn-mode .footer {
 <!-- BIG ROI CALLOUT -->
 <section class="big-callout">
   <div class="fade-up">
-    <div class="big-number" id="bigNumber">$20M+</div>
-    <div class="big-context" id="bigContext">in revenue from a mid-six-figure budget</div>
-    <div class="big-sub" id="bigSub">Within 12 months. And it's still generating pipeline today.</div>
+    <div class="big-number" id="bigNumber">13 Years</div>
+    <div class="big-context" id="bigContext">of continuous value from a single production</div>
+    <div class="big-sub" id="bigSub">10x ROI in year one. $20M+ in attributed revenue. Still live on Salesforce.com today.</div>
   </div>
 </section>
 
@@ -454,7 +571,7 @@ body.unicorn-mode .footer {
       "We gated some of that additional content, so we were able to use these really inspirational and educational pieces to open even bigger conversations about their professional lives and the business challenges that they face every day. Gating the content generated a significant amount of leads, pipeline, and revenue."
       <cite>— Zaledonis, VP of Product Marketing, Salesforce</cite>
     </blockquote>
-    <p class="fade-up stagger-4" id="sec3P2">On a mid-six-figure production budget, Salesforce attributed over $20 million in sales directly to engagement with the film and its derivative content — within the first 12 months alone. The documentary is now used in universities as teaching material. It's still generating value years later. That's the staying power of a story well told.</p>
+    <p class="fade-up stagger-4" id="sec3P2">On a mid-six-figure production budget, Salesforce generated a 10x return on investment within the first 12 months alone — over $20 million in attributed revenue from the film and its derivative content. But here's what makes this truly extraordinary: that was just year one. The documentary has continued generating leads, pipeline, and revenue every single year since its 2013 launch. Universities teach it. Sales teams screen it for new hires. Thirteen years later, the dedicated page is still live on Salesforce.com. That's not a campaign. That's a compounding asset.</p>
   </div>
 </section>
 
@@ -526,6 +643,110 @@ body.unicorn-mode .footer {
   </div>
 </section>
 
+<!-- 13 YEARS AND COUNTING -->
+<section class="case-section alt">
+  <div class="container">
+    <div class="section-label fade-up">13 Years and Counting</div>
+    <h2 class="fade-up stagger-1">Most campaigns last weeks. This one has been compounding since 2013.</h2>
+    <p class="fade-up stagger-2">Here's the part that should stop every marketer in their tracks: The Story of Sales didn't just deliver a 10x ROI in its first year and then fade away. It has continued generating value — leads, pipeline, brand authority, educational impact — every single year for over a decade. Salesforce has never taken the page down. They've never stopped sharing it. The film is still being screened, referenced, and generating new conversations in 2026.</p>
+    <p class="fade-up stagger-3">Think about what that means for the math. A mid-six-figure investment that returned 10x in year one has now been delivering compounding returns for 13 consecutive years. No ad campaign does that. No paid media buy does that. No influencer partnership does that. Only story does that.</p>
+
+    <div class="value-timeline fade-up stagger-4">
+      <div class="timeline-item">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-content">
+          <h4>Launch &amp; Premiere</h4>
+          <p>Red-carpet premiere at Dreamforce. 10x ROI within 12 months. $20M+ in attributed revenue.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2014–16</div>
+        <div class="timeline-content">
+          <h4>Content Multiplication</h4>
+          <p>Documentary chopped into hundreds of derivative assets — blog posts, gated content, social clips, email sequences. Each one generating new pipeline.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2017–20</div>
+        <div class="timeline-content">
+          <h4>Educational Adoption</h4>
+          <p>Universities begin using the film as teaching material. Sales teams screen it for new hires. The brand authority compounds silently.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021–24</div>
+        <div class="timeline-content">
+          <h4>Industry Blueprint</h4>
+          <p>Every major brand copies the playbook. Patagonia, HubSpot, Shopify, Apple — brand storytelling becomes the dominant marketing strategy. Salesforce's film is cited as the original proof point.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025–26</div>
+        <div class="timeline-content">
+          <h4>Still Live. Still Working.</h4>
+          <p>The dedicated Salesforce page is still up. The film is still watchable for free. Still generating conversations, authority, and pipeline. 13 years and counting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT LIVE -->
+<section class="still-live-section">
+  <div class="container">
+    <div class="section-label fade-up">Proof</div>
+    <h2 class="fade-up stagger-1">Don't take our word for it. The page is still live on Salesforce.com right now.</h2>
+    <p class="fade-up stagger-2">This is what a 13-year compounding content asset looks like. Salesforce still hosts a dedicated microsite for The Story of Sales — complete with the full documentary, chapter breakdowns, thought leader profiles, screening events, press coverage, and a contact form. A mid-six-figure investment, still working over a decade later.</p>
+
+    <a href="https://www.salesforce.com/story-of-sales/" target="_blank" rel="noopener" class="browser-mockup fade-up stagger-3">
+      <div class="browser-bar">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">salesforce.com/story-of-sales/</div>
+      </div>
+      <div class="browser-body">
+        <img src="https://customer-70psjiempsj421uj.cloudflarestream.com/72062f3d673b423443a2eb05840937df/thumbnails/thumbnail.jpg?time=8s&height=500" alt="The Story of Sales — Still live on Salesforce.com" loading="lazy">
+        <div class="browser-overlay">
+          <div class="live-badge">Live Now</div>
+          <div class="visit-text">Visit salesforce.com/story-of-sales &rarr;</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="page-breakdown fade-up stagger-4">
+      <div class="breakdown-card">
+        <div class="bd-icon">&#127916;</div>
+        <h4>Full Documentary</h4>
+        <p>The complete 90-minute film is still available to stream for free — over a decade after launch.</p>
+      </div>
+      <div class="breakdown-card">
+        <div class="bd-icon">&#128218;</div>
+        <h4>8 Chapters</h4>
+        <p>Individual chapter breakdowns from "What is Sales?" to "The Future of Sales" — each one a standalone content asset.</p>
+      </div>
+      <div class="breakdown-card">
+        <div class="bd-icon">&#128101;</div>
+        <h4>Thought Leaders</h4>
+        <p>Profiles of featured experts from Harvard Business School, Gartner, and Salesforce — lending ongoing authority.</p>
+      </div>
+      <div class="breakdown-card">
+        <div class="bd-icon">&#127915;</div>
+        <h4>Screening Events</h4>
+        <p>In-person screenings were hosted across LA, Dallas, San Francisco, Boston, and NYC — extending the film's reach offline.</p>
+      </div>
+      <div class="breakdown-card">
+        <div class="bd-icon">&#128240;</div>
+        <h4>Press Coverage</h4>
+        <p>Featured in LinkedIn, Salesforce Blog, and industry publications — each article driving new traffic back to the film.</p>
+      </div>
+      <div class="breakdown-card">
+        <div class="bd-icon">&#128231;</div>
+        <h4>Contact &amp; Lead Gen</h4>
+        <p>The page still has a contact form for screenings and partnerships — a perpetual lead generation machine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="case-cta">
   <h2 class="fade-up" id="ctaTitle">Ready to tell your story?</h2>
@@ -555,13 +776,13 @@ let unicornActive = false;
 const unicornCopy = {
   heroBadge:    { orig: null, uni: '🦄 Case Study (Now With Glitter)' },
   heroTitle:    { orig: null, uni: 'Salesforce made a movie. Never mentioned themselves once. Made <span class="highlight" id="heroHighlight">$20 million.</span> Absolute legends.' },
-  heroSubtitle: { orig: null, uni: 'They basically said "what if we made a whole documentary and didn\'t even try to sell anything?" and it became the greatest marketing flex in SaaS history. 40x ROI. We\'re still not over it.' },
+  heroSubtitle: { orig: null, uni: 'They basically said "what if we made a whole documentary and didn\'t even try to sell anything?" 10x ROI year one. THIRTEEN YEARS of compounding value. The page is STILL UP. We\'re still not over it.' },
   stat1Num:     { orig: null, uni: '$20M+' },
   stat1Label:   { orig: null, uni: 'cold hard cash<br>from a movie' },
-  stat2Num:     { orig: null, uni: '40x' },
-  stat2Label:   { orig: null, uni: 'ROI that makes<br>CFOs weep' },
-  stat3Num:     { orig: null, uni: '90 min' },
-  stat3Label:   { orig: null, uni: 'of film without<br>saying "buy our CRM"' },
+  stat2Num:     { orig: null, uni: '10x' },
+  stat2Label:   { orig: null, uni: 'ROI year one<br>(then it kept going)' },
+  stat3Num:     { orig: null, uni: '13 yrs' },
+  stat3Label:   { orig: null, uni: 'still making money<br>ARE YOU KIDDING' },
   stat4Num:     { orig: null, uni: '0' },
   stat4Label:   { orig: null, uni: 'product mentions<br>(yes, really, zero)' },
   sec1Label:    { orig: null, uni: '🎲 The Unhinged Pitch' },
@@ -573,9 +794,9 @@ const unicornCopy = {
   sec2Title:    { orig: null, uni: '6 months. 12 cities. 35 interviews. 60 hours of footage. One really long edit.' },
   sec2P1:       { orig: null, uni: 'This wasn\'t a TikTok that went viral by accident. This was a coast-to-coast, six-month cinematic OPERATION. They followed a real salesperson through her actual life, interviewed the biggest names in the game, and flew to 12 locations. Full crew. No shortcuts.' },
   sec2P2:       { orig: null, uni: '15 days of full crew, 30+ days of half crew, and 60 hours of raw footage that had to be wrestled down to 80 minutes. The premiere? Red carpet at Dreamforce — the Super Bowl of tech conferences. The only footage they didn\'t shoot themselves was archival clips from literal last century. Respect.' },
-  bigNumber:    { orig: null, uni: '$20M+ 🤑' },
-  bigContext:   { orig: null, uni: 'from a movie that costs less than a Super Bowl ad spot' },
-  bigSub:       { orig: null, uni: 'Within 12 months. Still printing money. Universities teach it now. Absurd.' },
+  bigNumber:    { orig: null, uni: '13 YEARS 🤯' },
+  bigContext:   { orig: null, uni: 'of compounding value from ONE production' },
+  bigSub:       { orig: null, uni: '10x year one. Still live on Salesforce.com. The page is literally still up. We checked.' },
   sec3Label:    { orig: null, uni: '💰 The Money Printer' },
   sec3Title:    { orig: null, uni: 'They turned one movie into an infinite content machine that will not stop generating leads.' },
   sec3P1:       { orig: null, uni: 'Here\'s where it gets stupid good. They didn\'t just release a documentary and hope for the best. They CHOPPED IT UP into blog posts, social clips, email sequences, and gated content. Every piece started a conversation. Every conversation moved a deal forward. The documentary wasn\'t the product — it was the factory.' },
@@ -602,7 +823,7 @@ const unicornCopy = {
   sec5P2:       { orig: null, uni: 'Story content gets 3-5x longer engagement than product marketing. It compounds over time (unlike ads that evaporate the second you stop paying). And it builds the kind of trust that turns cold prospects into ride-or-die brand advocates. The ROI is embarrassingly good.' },
   sec5P3:       { orig: null, uni: 'Salesforce did it with a movie. Patagonia does it with environmental docs. HubSpot does it with educational series. Apple\'s been doing it since 1984. The pattern is so clear it hurts: invest in story = dominate your category. That\'s just math at this point.' },
   ctaTitle:     { orig: null, uni: 'Want us to make YOUR brand unforgettable? 🦄' },
-  ctaSub:       { orig: null, uni: 'We literally built the original Story of Sales. We know this playbook inside and out. Let\'s create your version — your origin story, your customer love letter, your 40x ROI moment. Starting at $2,500.' },
+  ctaSub:       { orig: null, uni: 'We literally built the original Story of Sales. We know this playbook inside and out. Let\'s create your version — your origin story, your customer love letter, your 13-years-and-still-printing-money moment. Starting at $2,500.' },
   ctaBtn1:      { orig: null, uni: '🦄 Yes, Make Me Legendary' },
 };
 
